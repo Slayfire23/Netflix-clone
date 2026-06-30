@@ -8,6 +8,8 @@
     color: #e5e5e5;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
     z-index: 1;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .navbar-left {
@@ -44,6 +46,8 @@
 .navbar-right .profile {
     border-radius: 4px;
     width: 35px;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .navbar-profile {
