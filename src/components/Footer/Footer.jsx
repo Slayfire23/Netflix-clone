@@ -1,4 +1,3 @@
-import React from 'react'
 import './Footer.css'
 import Youtube from '../../assets/youtube_icon.png'
 import Twitter from '../../assets/twitter_icon.png'

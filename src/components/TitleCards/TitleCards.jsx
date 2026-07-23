@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './TitleCards.css'
-import cards_data from '../../assets/cards/Cards_data'
 import { Link } from 'react-router-dom';
 
 const TitleCards = ({title, category}) => {
@@ -8,6 +7,7 @@ const TitleCards = ({title, category}) => {
 const [apiData, setApiData] = useState([]);
 const cardsRef = useRef ();
 
+useEffect (() => {
 const options = {
   method: 'GET',
   headers: {
@@ -20,16 +20,17 @@ const handleWheel = (event) => {
   event.preventDefault();
   cardsRef.current.scrollLeft += event.deltaY;
 }
-
-useEffect (() => {
+const cardsElement = cardsRef.current;
 
 fetch(`https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`, options)
   .then(res => res.json())
   .then(res => setApiData(res.results))
   .catch(err => console.error(err));
 
-  cardsRef.current.addEventListener('wheel', handleWheel)
-}, [])
+  cardsElement.addEventListener('wheel', handleWheel)
+
+  return () => cardsElement.removeEventListener('wheel', handleWheel)
+}, [category])
 
   return (
     <div className='title-cards'>

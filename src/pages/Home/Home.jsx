@@ -1,4 +1,3 @@
-import React from 'react'
 import './Home.css'
 import Navbar from '../../components/Navbar/Navbar'
 import Hero_Banner from '../../assets/hero_banner.jpg'

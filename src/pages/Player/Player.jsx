@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Player.css'
 import BackArrow from '../../assets/back_arrow_icon.png'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -15,6 +15,8 @@ const [apiData, setApiData] = useState ({
   published_at: "",
   typeof: ""
 })
+
+useEffect(() => {
 const options = {
   method: 'GET',
   headers: {
@@ -23,13 +25,12 @@ const options = {
   }
 };
 
-useEffect(() => {
   fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
   .then(res => res.json())
   .then(res => setApiData(res.results[0]))
   .catch(err => console.error(err));
 
-},[])
+},[id])
 
   return (
     <div className='player'>
