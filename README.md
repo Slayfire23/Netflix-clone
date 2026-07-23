@@ -26,6 +26,12 @@ When a user clicks a movie card, they are taken to a player page that loads a tr
 Firebase -
 Firebase is used for user authentication and saving basic user information when someone signs up.
 
+Testing -
+This project uses Jest and React Testing Library for component testing.
+Run the test suite:
+```bash
+npm test
+
 Live Link
 https://netflix-clone-alpha-sage-83.vercel.app/
 
